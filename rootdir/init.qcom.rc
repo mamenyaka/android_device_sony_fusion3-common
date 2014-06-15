@@ -229,6 +229,8 @@ on post-fs-data
     # Update WIFI MAC address
     mkdir /data/misc/wifi/prima 0775 wifi wifi
     exec /system/bin/mac-update
+    
+    start wlan
 
     write /sys/module/wcnss_ssr_8960/parameters/enable_riva_ssr 1
     write /sys/devices/platform/wcnss_wlan.0/serial_number ${ro.serialno}
@@ -685,6 +687,12 @@ service illumination /system/bin/illumination_service
     socket illumination stream 0660 root system
     class main
     user root
+    
+service wlan /system/bin/sh /system/etc/init.qcom.wlan.sh
+    class main
+    user root
+    group system system
+    oneshot
 
 on property:sys.perf.profile=0
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "conservative"

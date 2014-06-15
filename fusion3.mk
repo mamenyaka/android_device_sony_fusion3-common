@@ -92,7 +92,8 @@ PRODUCT_COPY_FILES += \
     $(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml
 
 PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/rootdir/system/etc/kickstart_checker.sh:system/etc/kickstart_checker.sh
+    $(COMMON_PATH)/rootdir/system/etc/kickstart_checker.sh:system/etc/kickstart_checker.sh \
+    $(COMMON_PATH)/rootdir/system/etc/init.qcom.wlan.sh:system/etc/init.qcom.wlan.sh
 
 # Recovery
 PRODUCT_PACKAGES += \
